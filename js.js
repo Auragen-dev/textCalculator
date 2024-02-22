@@ -1,7 +1,6 @@
 //  Init document elements
 var txtNumber1 = document.getElementById("number1");
 var txtNumber2 = document.getElementById("number2");
-//var btnSubmit = document.getElementById("trigger");
 var txtResult = document.getElementById("result");
 var txtOperator = document.getElementById("operator");
 
@@ -11,14 +10,18 @@ var allowedOperators = ["+", "-", "*", "/"];
 var allowedControls = ["Backspace", "Space"];
 
 //  Init Event Listeners
-//btnSubmit.addEventListener("click", submit);
 txtNumber1.addEventListener("keydown", numberCheck);
 txtNumber2.addEventListener("keydown", numberCheck);
-//txtOperator.addEventListener("keydown", operatorCheck);
+
 
 function submit(op) {
     var n1 = txtNumber1.value; console.log(n1);
     var n2 = txtNumber2.value; console.log(n2);
+
+
+    if (n1 == "" || n2 == "") { alert("Please enter a number."); exit; }
+    if (!op.includes(allowedOperators)) { alert("Please enter a valid operator."); exit; }
+
     var operator = op; console.log(operator);
     var result = calculate(n1, n2, operator);
     txtResult.innerHTML = result.toString();
