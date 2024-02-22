@@ -11,22 +11,21 @@ var allowedOperators = ["+", "-", "*", "/"];
 var allowedControls = ["Backspace", "Space"];
 
 //  Init Event Listeners
-button.addEventListener("click", calculate);
+btnSubmit.addEventListener("click", submit);
 txtNumber1.addEventListener("keydown", numberCheck);
 txtNumber2.addEventListener("keydown", numberCheck);
 txtOperator.addEventListener("keydown", operatorCheck);
 
-function textParse() {
-    console.log("Calculation started")
-    var operation = operator.value();
-    console.log(operation);
-    var StrNo1 = number1.value;
-    var StrNo2 = number2.value;
-    var no1 = parseInt(StrNo1);
-    var no2 = parseInt(StrNo2);
-    alert("Values set")
+function submit() {
+    var n1 = txtNumber1.value; console.log(n1);
+    var n2 = txtNumber2.value; console.log(n2);
+    var operator = txtOperator.value; console.log(operator);
+    var result = calculate(n1, n2, operator);
+    txtResult.value = result.toString();
 }
 function calculate(n1, n2, operator) {
+    var no1 = parseInt(n1);
+    var no2 = parseInt(n2);
     var final = "";
     switch (operator) {
         case "+":
@@ -44,6 +43,7 @@ function calculate(n1, n2, operator) {
         default:
             alert("Please enter a valid operator");
     }
+    console.log(final.toString());
     return final;
 }
 
