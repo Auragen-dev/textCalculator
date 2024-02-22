@@ -1,15 +1,20 @@
-var number1 = document.getElementById("number1");
-var number2 = document.getElementById("number2");
-var button = document.getElementById("trigger");
-var result = document.getElementById("result");
+//  Init document elements
+var txtNumber1 = document.getElementById("number1");
+var txtNumber2 = document.getElementById("number2");
+var btnSubmit = document.getElementById("trigger");
+var txtResult = document.getElementById("result");
+var txtOperator = document.getElementById("operator");
 
+//  Init whitelist
 var allowedNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var allowedOperators = ["+", "-", "*", "/"];
 var allowedControls = ["Backspace", "Space"];
+
+//  Init Event Listeners
 button.addEventListener("click", calculate);
-number1.addEventListener("keydown", numberCheck);
-number2.addEventListener("keydown", numberCheck);
-operator.addEventListener("keydown", operatorCheck);
+txtNumber1.addEventListener("keydown", numberCheck);
+txtNumber2.addEventListener("keydown", numberCheck);
+txtOperator.addEventListener("keydown", operatorCheck);
 
 function textParse() {
     console.log("Calculation started")
@@ -20,29 +25,29 @@ function textParse() {
     var no1 = parseInt(StrNo1);
     var no2 = parseInt(StrNo2);
     alert("Values set")
-
-    function calculate(n1, n2, operator) {
-        switch (operator) {
-            case "+":
-                var final = no1 + no2;
-                break;
-            case "-":
-                var final = no1 - no2;
-                break;
-            case "*":
-                var final = no1 / no2;
-                break;
-            case "/":
-                var final = no1 * no2;
-                break;
-            default:
-                alert("Please enter a valid operator");
-        }
-    }
-
-    alert(final);
-    result.setAttribute = final.toString();
 }
+function calculate(n1, n2, operator) {
+    var final = "";
+    switch (operator) {
+        case "+":
+            final = no1 + no2;
+            break;
+        case "-":
+            final = no1 - no2;
+            break;
+        case "*":
+            final = no1 / no2;
+            break;
+        case "/":
+            final = no1 * no2;
+            break;
+        default:
+            alert("Please enter a valid operator");
+    }
+    return final;
+}
+
+
 
 function numberCheck(e) {
     var key = e.key;
