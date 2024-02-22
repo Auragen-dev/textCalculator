@@ -1,7 +1,7 @@
 //  Init document elements
 var txtNumber1 = document.getElementById("number1");
 var txtNumber2 = document.getElementById("number2");
-var btnSubmit = document.getElementById("trigger");
+//var btnSubmit = document.getElementById("trigger");
 var txtResult = document.getElementById("result");
 var txtOperator = document.getElementById("operator");
 
@@ -11,17 +11,17 @@ var allowedOperators = ["+", "-", "*", "/"];
 var allowedControls = ["Backspace", "Space"];
 
 //  Init Event Listeners
-btnSubmit.addEventListener("click", submit);
+//btnSubmit.addEventListener("click", submit);
 txtNumber1.addEventListener("keydown", numberCheck);
 txtNumber2.addEventListener("keydown", numberCheck);
-txtOperator.addEventListener("keydown", operatorCheck);
+//txtOperator.addEventListener("keydown", operatorCheck);
 
-function submit() {
+function submit(op) {
     var n1 = txtNumber1.value; console.log(n1);
     var n2 = txtNumber2.value; console.log(n2);
-    var operator = txtOperator.value; console.log(operator);
+    var operator = op; console.log(operator);
     var result = calculate(n1, n2, operator);
-    txtResult.value = result.toString();
+    txtResult.innerHTML = result.toString();
 }
 function calculate(n1, n2, operator) {
     var no1 = parseInt(n1);
@@ -35,10 +35,10 @@ function calculate(n1, n2, operator) {
             final = no1 - no2;
             break;
         case "*":
-            final = no1 / no2;
+            final = no1 * no2;
             break;
         case "/":
-            final = no1 * no2;
+            final = no1 / no2;
             break;
         default:
             alert("Please enter a valid operator");
