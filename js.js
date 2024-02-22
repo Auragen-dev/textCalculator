@@ -5,7 +5,7 @@ var txtResult = document.getElementById("result");
 var txtOperator = document.getElementById("operator");
 
 //  Init whitelist
-var allowedNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var allowedNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 var allowedOperators = ["+", "-", "*", "/"];
 var allowedControls = ["Backspace", "Space"];
 
@@ -15,9 +15,9 @@ txtNumber2.addEventListener("keydown", numberCheck);
 
 
 function submit(op) {
-    var n1 = txtNumber1.value; console.log(n1);
-    var n2 = txtNumber2.value; console.log(n2);
-    var operator = op; console.log(operator);
+    var n1 = txtNumber1.value;
+    var n2 = txtNumber2.value;
+    var operator = op;
 
 
     //  Checking if input data is valid and needs reinput
@@ -47,7 +47,6 @@ function calculate(n1, n2, operator) {
         default:
             alert("Please enter a valid operator");
     }
-    console.log(final.toString());
     return final;
 }
 
