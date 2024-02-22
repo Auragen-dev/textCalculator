@@ -28,8 +28,8 @@ function submit(op) {
     txtResult.innerHTML = result.toString();
 }
 function calculate(n1, n2, operator) {
-    var no1 = parseInt(n1);
-    var no2 = parseInt(n2);
+    var no1 = parseFloat(n1);
+    var no2 = parseFloat(n2);
     var final = "";
     switch (operator) {
         case "+":
