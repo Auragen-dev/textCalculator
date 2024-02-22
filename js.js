@@ -17,12 +17,13 @@ txtNumber2.addEventListener("keydown", numberCheck);
 function submit(op) {
     var n1 = txtNumber1.value; console.log(n1);
     var n2 = txtNumber2.value; console.log(n2);
-
-
-    if (n1 == "" || n2 == "") { alert("Please enter a number."); exit; }
-    if (!op.includes(allowedOperators)) { alert("Please enter a valid operator."); exit; }
-
     var operator = op; console.log(operator);
+
+
+    //  Checking if input data is valid and needs reinput
+    if (n1 == "" || n2 == "") { alert("Please enter a number."); return; }
+    if (op.includes(allowedOperators)) { alert("Please enter a valid operator."); return; }
+
     var result = calculate(n1, n2, operator);
     txtResult.innerHTML = result.toString();
 }
@@ -55,26 +56,9 @@ function calculate(n1, n2, operator) {
 function numberCheck(e) {
     var key = e.key;
     var allowed = allowedNumbers + allowedControls;
-    console.log("Code: " + e.code + " Key: " + key);
 
     if (!allowed.includes(key)) {
         e.preventDefault();
-        console.log("Letter not typed");
         return;
     }
-    console.log("Letter Typed!");
-}
-
-function operatorCheck(e) {
-    var key = e.key;
-    var allowed = allowedOperators + allowedControls;
-    console.log(key);
-    console.log(e.code);
-
-    if (!allowed.includes(key)) {
-        e.preventDefault();
-        console.log("Letter not typed");
-        return;
-    }
-    console.log("Letter Typed!");
 }
