@@ -7,7 +7,7 @@ var txtOperator = document.getElementById("operator");
 //  Init whitelist
 var allowedNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 var allowedOperators = ["+", "-", "*", "/"];
-var allowedControls = ["Backspace", "Space"];
+var allowedControls = ["Backspace"];
 
 //  Init Event Listeners
 txtNumber1.addEventListener("keydown", numberCheck);
